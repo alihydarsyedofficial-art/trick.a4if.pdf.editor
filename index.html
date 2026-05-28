@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mohammad Mujahidul Islam - TRICK A4IF">
+    <title>TRICK A4IF | Advanced Document Engine</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="top-dashboard glass-panel">
+        <div class="dashboard-left">
+            <div class="brand">
+                <i class="fa-solid fa-shield-virus"></i>
+                <div class="brand-text">
+                    <h1>TRICK A4IF</h1>
+                    <span>Document Automation Engine</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-center disabled-group" id="main-tools">
+            <div class="tool-group">
+                <button class="tool-btn" data-tool="text" title="Insert Text"><i class="fa-solid fa-t"></i> Type</button>
+                <button class="tool-btn" data-tool="draw" title="Sign Document"><i class="fa-solid fa-file-signature"></i> Sign</button>
+                <button class="tool-btn" data-tool="highlight" title="Highlight Data"><i class="fa-solid fa-highlighter"></i> Highlight</button>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <div class="pagination-group">
+                <button class="icon-btn" id="btn-prev"><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="page-indicator">
+                    <span id="page-num">0</span> <span class="muted">/</span> <span id="page-count" class="muted">0</span>
+                </div>
+                <button class="icon-btn" id="btn-next"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
+            <div class="separator"></div>
+
+            <button class="tool-btn danger" id="btn-clear" title="Clear Annotations"><i class="fa-solid fa-eraser"></i> Erase</button>
+        </div>
+
+        <div class="dashboard-right">
+            <label for="pdf-upload" class="btn primary-btn"><i class="fa-solid fa-cloud-arrow-up"></i> Upload</label>
+            <input type="file" id="pdf-upload" accept="application/pdf" hidden>
+            
+            <button id="btn-export" class="btn success-btn disabled-group"><i class="fa-solid fa-microchip"></i> Process & Save</button>
+        </div>
+    </header>
+
+    <main class="bottom-workspace">
+        <div id="loader" class="glass-loader hidden">
+            <div class="cyber-spinner"></div>
+            <p id="loader-text">Loading Core...</p>
+        </div>
+        
+        <div class="canvas-wrapper hidden" id="canvas-wrapper">
+            <canvas id="pdf-bg-canvas"></canvas>
+            <canvas id="interactive-canvas"></canvas>
+        </div>
+        
+        <div id="empty-state" class="empty-state">
+            <div class="hex-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <h2>System Standby</h2>
+            <p>Initialize engine by uploading a secure PDF document.</p>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
